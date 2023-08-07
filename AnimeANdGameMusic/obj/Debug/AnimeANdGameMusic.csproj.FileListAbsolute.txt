@@ -228,3 +228,4 @@ C:\Users\hongkanpoon\Source\Repos\AnimeAndGamesMusic\AnimeANdGameMusic\obj\Debug
 C:\Users\hongkanpoon\Source\Repos\AnimeAndGamesMusic\AnimeANdGameMusic\obj\Debug\AnimeANdGameMusic.pdb
 C:\Users\hongkanpoon\Source\Repos\AnimeAndGamesMusic\AnimeANdGameMusic\obj\Debug\AnimeANdGameMusic.Migrations.Initial.resources
 C:\Users\hongkanpoon\Source\Repos\AnimeAndGamesMusic\AnimeANdGameMusic\obj\Debug\AnimeANdGameMusic.csproj.GenerateResource.cache
+C:\Users\hongkanpoon\Source\Repos\AnimeAndGamesMusic\AnimeANdGameMusic\obj\Debug\AnimeANdGameMusic.Migrations.Anime.resources

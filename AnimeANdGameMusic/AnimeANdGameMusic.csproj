@@ -182,6 +182,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AnimeController.cs" />
+    <Compile Include="Controllers\AnimeDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -191,8 +193,13 @@
     <Compile Include="Migrations\202308071759544_Initial.designer.cs">
       <DependentUpon>202308071759544_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202308071810290_Anime.cs" />
+    <Compile Include="Migrations\202308071810290_Anime.designer.cs">
+      <DependentUpon>202308071810290_Anime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Anime.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -269,6 +276,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Anime\List.cshtml" />
+    <Content Include="Views\Anime\New.cshtml" />
+    <Content Include="Views\Anime\Details.cshtml" />
+    <Content Include="Views\Anime\Edit.cshtml" />
+    <Content Include="Views\Anime\DeleteConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -303,6 +315,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202308071759544_Initial.resx">
       <DependentUpon>202308071759544_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202308071810290_Anime.resx">
+      <DependentUpon>202308071810290_Anime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
