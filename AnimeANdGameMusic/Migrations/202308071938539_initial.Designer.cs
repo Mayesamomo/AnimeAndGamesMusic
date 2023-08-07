@@ -7,13 +7,13 @@ namespace AnimeANdGameMusic.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class Updated : IMigrationMetadata
+    public sealed partial class initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Updated));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "202308071831187_Updated"; }
+            get { return "202308071938539_initial"; }
         }
         
         string IMigrationMetadata.Source
