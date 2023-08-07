@@ -112,3 +112,7 @@ C:\Users\micha\source\repos\AnimeANdGameMusic\AnimeANdGameMusic\obj\Debug\AnimeA
 C:\Users\micha\source\repos\AnimeANdGameMusic\AnimeANdGameMusic\obj\Debug\AnimeANdGameMusic.csproj.CopyComplete
 C:\Users\micha\source\repos\AnimeANdGameMusic\AnimeANdGameMusic\obj\Debug\AnimeANdGameMusic.dll
 C:\Users\micha\source\repos\AnimeANdGameMusic\AnimeANdGameMusic\obj\Debug\AnimeANdGameMusic.pdb
+C:\Users\micha\source\repos\AnimeANdGameMusic\AnimeANdGameMusic\obj\Debug\AnimeANdGameMusic.Migrations.InitialCreate.resources
+C:\Users\micha\source\repos\AnimeANdGameMusic\AnimeANdGameMusic\obj\Debug\AnimeANdGameMusic.csproj.GenerateResource.cache
+C:\Users\micha\source\repos\AnimeANdGameMusic\AnimeANdGameMusic\obj\Debug\AnimeANdGameMusic.Migrations.Updated.resources
+C:\Users\micha\source\repos\AnimeANdGameMusic\AnimeANdGameMusic\obj\Debug\AnimeANdGameMusic.Migrations.updatealbumclass.resources
