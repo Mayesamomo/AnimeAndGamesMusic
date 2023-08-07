@@ -187,9 +187,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202308071802034_InitialCreate.cs" />
-    <Compile Include="Migrations\202308071802034_InitialCreate.designer.cs">
-      <DependentUpon>202308071802034_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202308071828307_InitialCreate.cs" />
+    <Compile Include="Migrations\202308071828307_InitialCreate.designer.cs">
+      <DependentUpon>202308071828307_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202308071831187_Updated.cs" />
+    <Compile Include="Migrations\202308071831187_Updated.designer.cs">
+      <DependentUpon>202308071831187_Updated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202308071836439_update album class.cs" />
+    <Compile Include="Migrations\202308071836439_update album class.designer.cs">
+      <DependentUpon>202308071836439_update album class.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -305,8 +313,14 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202308071802034_InitialCreate.resx">
-      <DependentUpon>202308071802034_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202308071828307_InitialCreate.resx">
+      <DependentUpon>202308071828307_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202308071831187_Updated.resx">
+      <DependentUpon>202308071831187_Updated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202308071836439_update album class.resx">
+      <DependentUpon>202308071836439_update album class.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

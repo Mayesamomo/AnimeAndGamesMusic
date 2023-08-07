@@ -19,6 +19,9 @@ namespace AnimeANdGameMusic.Models
         [Range(1900, 2100, ErrorMessage = "The Release Year must be between 1900 and 2100.")]
         public int ReleaseYear { get; set; }
 
+        public bool HasPic { get; set; }
+        public string PicExtension { get; set; }
+
         // one-to-many relationship between Album and Song
         public ICollection<Song> Songs { get; set; }
 
@@ -33,6 +36,8 @@ namespace AnimeANdGameMusic.Models
         public int AlbumId { get; set; }
         public string AlbumTitle { get; set; }
         public int ReleaseYear { get; set; }
+        public bool HasPic { get; set; }
+        public string PicExtension { get; set; }
         public int ArtistId { get; set; }
 
     }
