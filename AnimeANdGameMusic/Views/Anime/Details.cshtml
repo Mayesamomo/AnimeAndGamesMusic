@@ -1,0 +1,24 @@
+﻿@using System.Globalization
+
+@model AnimeANdGameMusic.Models.AnimeDto
+@{
+    ViewBag.Title = "View";
+}
+
+<a href="/Anime/List">Go back to list</a>
+<br />
+@if (User.Identity.IsAuthenticated)
+{
+    <a href="/Anime/Edit/@Model.AnimeID">Update</a>
+    <br />
+    <a href="/Anime/DeleteConfirm/@Model.AnimeID">Delete</a>
+    <br />
+}
+
+<div style="display: flex; gap: 25px;">
+    <div>
+        <h2>@Model.AnimeName</h2>
+        <div>Release Date: @Model.ReleaseDate.ToString("MMM dd, yyyy", new CultureInfo("en-US"))</div>
+        <div>Description: @Model.Description</div>
+    </div>
+</div>

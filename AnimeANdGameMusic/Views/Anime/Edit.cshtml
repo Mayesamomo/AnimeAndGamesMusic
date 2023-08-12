@@ -1,0 +1,28 @@
+﻿@model AnimeANdGameMusic.Models.AnimeDto
+
+@{
+    ViewBag.Title = "Edit Anime";
+}
+
+<h2>Edit Anime</h2>
+<form action="/Anime/Update/@Model.AnimeID" method="POST" enctype="multipart/form-data">
+    <div style="display:none;">
+        <input name="AnimeID" type="text" value="@Model.AnimeID" />
+    </div>
+    <div>
+        <label>Name:</label> <br />
+        <input name="AnimeName" type="text" value="@Model.AnimeName" />
+    </div>
+    <div>
+        <label>Release Date:</label> <br />
+        <input name="ReleaseDate" type="date" value="@Model.FormattedDate" />
+    </div>
+    <div>
+        <label>Description:</label> <br />
+        <input name="Description" type="text" value="@Model.Description" />
+    </div>
+    <br />
+    <div>
+        <input type="submit" value="Update Anime" />
+    </div>
+</form>
