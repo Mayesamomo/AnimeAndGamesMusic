@@ -1,0 +1,26 @@
+﻿@model AnimeANdGameMusic.Models.SongDto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2 class="mx-2 pb-3">Details about: <span class="text-uppercase"> @Model.SongTitle</span></h2>
+<div class="container-md">
+    <div class="card p-3" style="width:20rem;">
+        <div class="card-body">
+            <h5 class="card-title text-uppercase">@Model.SongTitle</h5>
+            <p class="card-text text-wrap"><span class="fw-bold">Album:</span> @Model.AlbumTitle</p>
+            <p class="card-text"><span class="fw-bold">Genre</span> @Model.GenreTitle</p>
+            <p class="card-text"><span class="fw-bold">Artist Name</span> @Model.ArtistName</p>
+            <div class="d-flex justify-content-around">
+                <a href="#" class="col btn btn-outline-info">Edit</a>
+                <a href="#" class="col btn btn-outline-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+
+</div>

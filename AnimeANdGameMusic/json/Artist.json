@@ -1,0 +1,22 @@
+﻿[
+  {
+    "ArtistId": 1,
+    "ArtistName": "John Doe"
+  },
+  {
+    "ArtistId": 2,
+    "ArtistName": "Jane Smith"
+  },
+  {
+    "ArtistId": 3,
+    "ArtistName": "Michael Johnson"
+  },
+  {
+    "ArtistId": 4,
+    "ArtistName": "Emily Williams"
+  },
+  {
+    "ArtistId": 5,
+    "ArtistName": "David Lee"
+  }
+]

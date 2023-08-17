@@ -1,0 +1,42 @@
+﻿[
+  {
+    "AlbumId": 1,
+    "AlbumTitle": "Album One",
+    "ReleaseYear": 2022,
+    "HasPic": true,
+    "PicExtension": "jpg",
+    "ArtistId": 1
+  },
+  {
+    "AlbumId": 2,
+    "AlbumTitle": "Album Two",
+    "ReleaseYear": 2021,
+    "HasPic": false,
+    "PicExtension": "",
+    "ArtistId": 2
+  },
+  {
+    "AlbumId": 3,
+    "AlbumTitle": "Greatest Hits",
+    "ReleaseYear": 2023,
+    "HasPic": true,
+    "PicExtension": "png",
+    "ArtistId": 3
+  },
+  {
+    "AlbumId": 4,
+    "AlbumTitle": "Memories",
+    "ReleaseYear": 2020,
+    "HasPic": true,
+    "PicExtension": "jpg",
+    "ArtistId": 4
+  },
+  {
+    "AlbumId": 5,
+    "AlbumTitle": "Sunset Vibes",
+    "ReleaseYear": 2022,
+    "HasPic": false,
+    "PicExtension": "",
+    "ArtistId": 5
+  }
+]

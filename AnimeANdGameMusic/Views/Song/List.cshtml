@@ -1,0 +1,24 @@
+﻿@model IEnumerable<AnimeANdGameMusic.Models.SongDto>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of all Songs</h2>
+@foreach (var song in Model)
+{
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 mb-3">
+            <div class="col">
+                <div class="card border-primary border-top-2  rounded-top-1 shadow-sm pt-3 mt-3" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">@song.SongTitle</h5>
+                        <p class="card-text">Genre: @song.GenreTitle</p>
+                        <h6 class="card-text">Artist Name: @song.ArtistName</h6>
+                        <a href="/Song/Details/@song.SongId" class="btn btn-outline-primary">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

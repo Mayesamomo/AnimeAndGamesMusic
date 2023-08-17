@@ -186,6 +186,8 @@
     <Compile Include="Controllers\AnimeDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SongController.cs" />
+    <Compile Include="Controllers\SongDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -204,6 +206,10 @@
     <Compile Include="Migrations\202308120433466_Anime.cs" />
     <Compile Include="Migrations\202308120433466_Anime.designer.cs">
       <DependentUpon>202308120433466_Anime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202308171744497_artist, Album and songs.cs" />
+    <Compile Include="Migrations\202308171744497_artist, Album and songs.designer.cs">
+      <DependentUpon>202308171744497_artist, Album and songs.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -243,6 +249,10 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="json\Artist.json" />
+    <Content Include="json\Album.json" />
+    <Content Include="json\Song.json" />
+    <Content Include="json\Genre.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -294,6 +304,11 @@
     <Content Include="Views\Anime\Edit.cshtml" />
     <Content Include="Views\Anime\DeleteConfirm.cshtml" />
     <Content Include="Views\Anime\Error.cshtml" />
+    <Content Include="Views\Song\Create.cshtml" />
+    <Content Include="Views\Song\Delete.cshtml" />
+    <Content Include="Views\Song\Details.cshtml" />
+    <Content Include="Views\Song\Edit.cshtml" />
+    <Content Include="Views\Song\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -337,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202308120433466_Anime.resx">
       <DependentUpon>202308120433466_Anime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202308171744497_artist, Album and songs.resx">
+      <DependentUpon>202308171744497_artist, Album and songs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

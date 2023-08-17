@@ -1,0 +1,22 @@
+﻿[
+  {
+    "GenreId": 1,
+    "GenreTitle": "Rock"
+  },
+  {
+    "GenreId": 2,
+    "GenreTitle": "Pop"
+  },
+  {
+    "GenreId": 3,
+    "GenreTitle": "Hip Hop"
+  },
+  {
+    "GenreId": 4,
+    "GenreTitle": "Electronic"
+  },
+  {
+    "GenreId": 5,
+    "GenreTitle": "Jazz"
+  }
+]

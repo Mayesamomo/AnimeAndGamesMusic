@@ -12,7 +12,7 @@ namespace AnimeANdGameMusic.Models
         public int AlbumId { get; set; }
 
         [Required(ErrorMessage = "The Album Name is required.")]
-        [StringLength(100, ErrorMessage = "The Album Name must be between 1 and 100 characters.", MinimumLength = 1)]
+        [StringLength(100, ErrorMessage = "The Album title must be between 1 and 100 characters.", MinimumLength = 1)]
         public string AlbumTitle { get; set; }
 
         [Required(ErrorMessage = "The Release Year is required.")]
@@ -38,7 +38,7 @@ namespace AnimeANdGameMusic.Models
         public int ReleaseYear { get; set; }
         public bool HasPic { get; set; }
         public string PicExtension { get; set; }
-        public int ArtistId { get; set; }
+        public int ArtistName { get; set; }
 
     }
 }

@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AnimeANdGameMusic.Models
 {
     public class Song
     {
-
         [Key] //primary key
         public int SongId { get; set; }
 
@@ -18,13 +15,15 @@ namespace AnimeANdGameMusic.Models
 
 
         // many-to-one relationship between Song and Album
+        //song belongs to one Album
+        //album has many songs
+        [ForeignKey("Album")]
         public int AlbumId { get; set; }
-        public Album Album { get; set; }
+        public virtual Album Album { get; set; }
 
         // many-to-one relationship between Song and Genre
         public int GenreId { get; set; }
         public Genre Genre { get; set; }
-
 
     }
 
@@ -33,7 +32,8 @@ namespace AnimeANdGameMusic.Models
     {
         public int SongId { get; set; }
         public string SongTitle { get; set; }
-        public int AlbumId { get; set; }
-        public int GenreId { get; set; }
+        public String AlbumTitle { get; set; }
+        public String ArtistName { get; set; }
+        public String GenreTitle { get; set; }
     }
 }
