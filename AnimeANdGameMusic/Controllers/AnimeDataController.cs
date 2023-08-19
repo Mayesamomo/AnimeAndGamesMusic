@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
 using AnimeANdGameMusic.Models;
@@ -117,6 +120,9 @@ namespace AnimeANdGameMusic.Controllers
             }
 
             db.Entry(anime).State = EntityState.Modified;
+            // Picture update is handled by another method
+            db.Entry(anime).Property(a => a.AnimeHasPic).IsModified = false;
+            db.Entry(anime).Property(a => a.PicExtension).IsModified = false;
 
             try
             {
@@ -135,6 +141,91 @@ namespace AnimeANdGameMusic.Controllers
             }
 
             return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        /// <summary>
+        /// Receives anime picture data, uploads it to the webserver and updates the anime's HasPic option
+        /// </summary>
+        /// <param name="id">the anime id</param>
+        /// <returns>status code 200 if successful.</returns>
+        /// <example>
+        /// curl -F animepic=@file.jpg "https://localhost:xx/api/animedata/uploadanimepic/2"
+        /// POST: api/animeData/UpdateanimePic/3
+        /// HEADER: enctype=multipart/form-data
+        /// FORM-DATA: image
+        /// </example>
+        /// https://stackoverflow.com/questions/28369529/how-to-set-up-a-web-api-controller-for-multipart-form-data
+
+        [HttpPost]
+        public IHttpActionResult UploadAnimePic(int id)
+        {
+
+            bool haspic = false;
+            string picextension;
+            if (Request.Content.IsMimeMultipartContent())
+            {
+                Debug.WriteLine("Received multipart form data.");
+
+                int numfiles = HttpContext.Current.Request.Files.Count;
+                Debug.WriteLine("Files Received: " + numfiles);
+
+                //Check if a file is posted
+                if (numfiles == 1 && HttpContext.Current.Request.Files[0] != null)
+                {
+                    var animePic = HttpContext.Current.Request.Files[0];
+                    //Check if the file is empty
+                    if (animePic.ContentLength > 0)
+                    {
+                        //establish valid file types (can be changed to other file extensions if desired!)
+                        var valtypes = new[] { "jpeg", "jpg", "png", "gif" };
+                        var extension = Path.GetExtension(animePic.FileName).Substring(1);
+                        //Check the extension of the file
+                        if (valtypes.Contains(extension))
+                        {
+                            try
+                            {
+                                //file name is the id of the image
+                                string fn = id + "." + extension;
+
+                                //get a direct file path to ~/Content/animes/{id}.{extension}
+                                string path = Path.Combine(HttpContext.Current.Server.MapPath("~/Content/Images/Animes/"), fn);
+
+                                //save the file
+                                animePic.SaveAs(path);
+
+                                //if these are all successful then we can set these fields
+                                haspic = true;
+                                picextension = extension;
+
+                                //Update the anime haspic and picextension fields in the database
+                                Anime Selectedanime = db.Animes.Find(id);
+                                Selectedanime.AnimeHasPic = haspic;
+                                Selectedanime.PicExtension = extension;
+                                db.Entry(Selectedanime).State = EntityState.Modified;
+
+                                db.SaveChanges();
+
+                            }
+                            catch (Exception ex)
+                            {
+                                Debug.WriteLine("Anime Image was not saved successfully.");
+                                Debug.WriteLine("Exception:" + ex);
+                                return BadRequest();
+                            }
+                        }
+                    }
+
+                }
+
+                return Ok();
+            }
+            else
+            {
+                //not multipart form data
+                return BadRequest();
+
+            }
+
         }
 
         /// <summary>
@@ -189,6 +280,17 @@ namespace AnimeANdGameMusic.Controllers
             if (anime == null)
             {
                 return NotFound();
+            }
+
+            if (anime.AnimeHasPic && anime.PicExtension != "")
+            {
+                //also delete image from path
+                string path = HttpContext.Current.Server.MapPath("~/Content/Players/" + id + "." + anime.PicExtension);
+                if (System.IO.File.Exists(path))
+                {
+                    Debug.WriteLine("File exists... preparing to delete!");
+                    System.IO.File.Delete(path);
+                }
             }
 
             db.Animes.Remove(anime);

@@ -148,6 +148,23 @@ namespace AnimeANdGameMusic.Controllers
             content.Headers.ContentType.MediaType = "application/json";
             HttpResponseMessage Response = Client.PostAsync(url, content).Result;
 
+            //server response is OK, and we have Game picture data(file exists)
+            if (Response.IsSuccessStatusCode && AnimePic != null)
+            {
+                //Seperate request for updating the Game picture (when user update Game without providing pictures) 
+                Debug.WriteLine("Update picture");
+
+                //set up picture url
+                url = "AnimeData/UploadAnimePic/" + id;
+
+                MultipartFormDataContent requestcontent = new MultipartFormDataContent();
+                HttpContent imagecontent = new StreamContent(AnimePic.InputStream);
+                requestcontent.Add(imagecontent, "AnimePic", AnimePic.FileName);
+                Response = Client.PostAsync(url, requestcontent).Result;
+
+                return RedirectToAction("List");
+            }
+
             if (Response.IsSuccessStatusCode)
             {
                 return RedirectToAction("List");
