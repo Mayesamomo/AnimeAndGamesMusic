@@ -1,0 +1,40 @@
+﻿@model IEnumerable<AnimeANdGameMusic.Models.GameDto>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h1>Game List</h1>
+
+<div class="container">
+    @foreach (var game in Model)
+    {
+        <div class="game">
+            @{
+                //Use server rendering to determine an image
+                string pic = "/Content/Images/Games/default.jpg";
+                string alt = "No Profile Picture Provided.";
+                if (@game.GameHasPic)
+                {
+                    pic = "/Content/Images/Games/" + @game.GameID + "." + @game.PicExtension;
+                    alt = "picture of " + @game.GameName;
+                }
+            }
+
+            <img class="poster" src="@pic" alt="@alt" />
+            <div class="details">
+                <h2 class="GameName"><a href="/Game/Details/@game.GameID">@game.GameName</a></h2>
+                <p class="gameID">Game ID: @game.GameID</p>
+                <p class="description">Description: @game.Description</p>
+                <p class="year">Release Year: @game.ReleaseYear</p>
+                <p class="price">Price: @game.Price</p>
+                <p class="genres"><a href="/Genre/Details/@game.GenreId">Genre: @game.GenreTitle</a></p>
+            </div>
+        </div>
+    }
+
+</div>
+<div class="button-container">
+    <a class="button-add" href="/Game/New">New Game</a>
+    <a class="button-back" href="/">BACK</a>
+</div>

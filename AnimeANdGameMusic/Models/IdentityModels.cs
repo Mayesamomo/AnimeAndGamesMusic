@@ -30,6 +30,7 @@ namespace AnimeANdGameMusic.Models
         public DbSet<Song> Songs { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Anime> Animes { get; set; }
+        public DbSet<Game> Games { get; set; }
 
         public static ApplicationDbContext Create()
         {

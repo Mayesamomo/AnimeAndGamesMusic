@@ -1,0 +1,54 @@
+﻿@model AnimeANdGameMusic.Models.ViewModels.UpdateGame
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h1>Gamers Hub</h1>
+<h2>Update A Game</h2>
+
+<form action="/Game/Update/@Model.SelectedGame.GameID" method="POST">
+    <div style="display:none;">
+        @* Pass through the Game ID *@
+        <input type="text" name="GameID" value="@Model.SelectedGame.GameID" />
+    </div>
+    <div class="editInput">
+        <label>Game Name:</label> <input type="text" name="GameName" value="@Model.SelectedGame.GameName" />
+    </div>
+    <div class="editInput">
+        <label>Release Year:</label> <input type="number" name="ReleaseYear" value="@Model.SelectedGame.ReleaseYear" />
+    </div>
+    <div class="editInput">
+        <label>Game Description:</label> <input type="text" name="Description" value="@Model.SelectedGame.Description" />
+    </div>
+    <div class="editInput">
+        <label>Price:</label> <input type="number" name="Price" value="@Model.SelectedGame.Price" />
+    </div>
+    <div class="editInput">
+        <label>Game Genre:</label>
+
+        <select name="GenreID">
+            @foreach (var genre in Model.GenreOptions)
+            {
+                string selected = "";
+                if (genre.GenreId == Model.SelectedGame.GenreId)
+                {
+                    selected = "selected";
+                }
+                <option value="@genre.GenreId" @selected>@genre.GenreTitle</option>
+
+            }
+        </select>
+    </div>
+    <div class="editInput updateBtn">
+        <input type="file" name="GamePic" />
+    </div>
+    <div id="btnContainer">
+        <div>
+            <input type="submit" value="Update Game" id="editBtn" />
+        </div>
+        <div>
+            <a id="backbtn" href="/Game/List">Back to List</a>
+        </div>
+    </div>
+</form>
