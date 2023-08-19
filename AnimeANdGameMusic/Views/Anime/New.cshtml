@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<AnimeANdGameMusic.Models.GenreDto>
+
+@{
     ViewBag.Title = "Create Anime";
 }
 
@@ -17,6 +19,17 @@
         <input name="Description" type="text" />
     </div>
     <br />
+    <div>
+
+    <label>Anime Genre:</label>
+    <select name="GenreId">
+        @foreach (var genre in Model)
+        {
+            <option value="@genre.GenreId">@genre.GenreTitle</option>
+
+        }
+    </select>
+    </div>
     <div>
         <input type="submit" value="Create Anime" />
     </div>

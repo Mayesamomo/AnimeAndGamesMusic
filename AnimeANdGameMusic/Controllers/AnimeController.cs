@@ -1,4 +1,5 @@
 ﻿using AnimeANdGameMusic.Models;
+using AnimeANdGameMusic.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -67,18 +68,25 @@ namespace AnimeANdGameMusic.Controllers
             //Objective: communicate with our anime data api to retrieve one anime
             //curl: https://localhost:44358/api/animedata/findanime/{id}
 
-            string url = "animedata/findanime/" + id;
-            HttpResponseMessage Response = Client.GetAsync(url).Result;
-            AnimeDto SelectedAnime = Response.Content.ReadAsAsync<AnimeDto>().Result;
+            DetailsAnime ViewModel = new DetailsAnime();
 
-            return View(SelectedAnime);
+            string url = "animedata/findAnime/" + id;
+            HttpResponseMessage response = Client.GetAsync(url).Result;
+
+            AnimeDto SelectedAnime = response.Content.ReadAsAsync<AnimeDto>().Result;
+            ViewModel.SelectedAnime = SelectedAnime;
+
+            return View(ViewModel);
         }
 
         // GET: Anime/New
         [Authorize]
         public ActionResult New()
         {
-            return View();
+            string url = "genredata/listgenres";
+            HttpResponseMessage response = Client.GetAsync(url).Result;
+            IEnumerable<GenreDto> GenreOptions = response.Content.ReadAsAsync<IEnumerable<GenreDto>>().Result;
+            return View(GenreOptions);
         }
 
         // POST: Anime/Create
@@ -111,11 +119,19 @@ namespace AnimeANdGameMusic.Controllers
         [Authorize]
         public ActionResult Edit(int id)
         {
+            UpdateAnime ViewModel = new UpdateAnime();
+
             string url = "animedata/findanime/" + id;
             HttpResponseMessage Response = Client.GetAsync(url).Result;
             AnimeDto SelectedAnime = Response.Content.ReadAsAsync<AnimeDto>().Result;
+            ViewModel.SelectedAnime = SelectedAnime;
 
-            return View(SelectedAnime);
+            url = "genredata/listgenres/";
+            Response = Client.GetAsync(url).Result;
+            IEnumerable<GenreDto> GenreOptions = Response.Content.ReadAsAsync<IEnumerable<GenreDto>>().Result;
+            ViewModel.GenreOptions = GenreOptions;
+
+            return View(ViewModel);
         }
 
         // POST: Anime/Update/5

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -15,6 +16,11 @@ namespace AnimeANdGameMusic.Models
         public string Description { get; set; }
         public bool AnimeHasPic { get; set; }
         public string PicExtension { get; set; }
+
+        // <Genre>-<Anime>  ==  1-M 
+        [ForeignKey("Genre")]
+        public int GenreId { get; set; }
+        public virtual Genre Genre { get; set; }
     }
     public class AnimeDto
     {
@@ -31,5 +37,7 @@ namespace AnimeANdGameMusic.Models
         public string Description { get; set; }
         public bool AnimeHasPic { get; set; }
         public string PicExtension { get; set; }
+        public int GenreId { get; set; }
+        public string GenreTitle { get; set; }
     }
 }

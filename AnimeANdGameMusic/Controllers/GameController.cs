@@ -55,61 +55,11 @@ namespace AnimeANdGameMusic.Controllers
             string url = "Gamedata/findGame/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
 
-            //Debug.WriteLine("The response code is ");
-            //Debug.WriteLine(response.StatusCode);
-
             GameDto SelectedGame = response.Content.ReadAsAsync<GameDto>().Result;
-            //Debug.WriteLine("Game received : ");
-            //Debug.WriteLine(SelectedGame.GameName);
+            ViewModel.SelectedGame = SelectedGame;
 
-            // set up a ViewModel to show the relationship between games and buyers
-            /*ViewModel.SelectedGame = SelectedGame;
-
-            //show associated buyers with this game via ViewModel
-            url = "buyerdata/listbuyersforgame/" + id;
-            response = client.GetAsync(url).Result;
-            IEnumerable<BuyerDto> LinkedBuyers = response.Content.ReadAsAsync<IEnumerable<BuyerDto>>().Result;
-
-            ViewModel.LinkedBuyers = LinkedBuyers;
-
-            // show unlinked buyer to this games
-            url = "buyerdata/listbuyersnotinterestedgame/" + id;
-            response = client.GetAsync(url).Result;
-            IEnumerable<BuyerDto> AvailableBuyers = response.Content.ReadAsAsync<IEnumerable<BuyerDto>>().Result;
-
-            ViewModel.AvailableBuyers = AvailableBuyers;*/
             return View(ViewModel);
         }
-
-        //POST: Game/Associate/{Gameid}
-        [HttpPost]
-        public ActionResult Associate(int id, int BuyerID)
-        {
-            //Debug.WriteLine("Associate Game :" + id + " with Buyer " + BuyerID);
-
-            //call api to link Game with Buyer
-            string url = "gamedata/associategamewithbuyer/" + id + "/" + BuyerID;
-            HttpContent content = new StringContent("");
-            content.Headers.ContentType.MediaType = "application/json";
-            HttpResponseMessage response = client.PostAsync(url, content).Result;
-
-            return RedirectToAction("Details/" + id);
-        }
-
-        //Get: Game/UnAssociate/{id}?BuyerID={BuyerID}
-        /*[HttpGet]
-        public ActionResult UnAssociate(int id, int BuyerID)
-        {
-            //Debug.WriteLine("Unassociate Game :" + id + " with Buyer: " + BuyerID);
-
-            //call api to link Game with Buyer
-            string url = "moviedata/unassociategamewithbuyer/" + id + "/" + BuyerID;
-            HttpContent content = new StringContent("");
-            content.Headers.ContentType.MediaType = "application/json";
-            HttpResponseMessage response = client.PostAsync(url, content).Result;
-
-            return RedirectToAction("Details/" + id);
-        }*/
 
         public ActionResult Error()
         {
@@ -170,7 +120,7 @@ namespace AnimeANdGameMusic.Controllers
 
             // all genres to choose from when updating this game
             // the existing game information
-            url = "genredata/listgenre/";
+            url = "genredata/listgenres/";
             response = client.GetAsync(url).Result;
             IEnumerable<GenreDto> GenreOptions = response.Content.ReadAsAsync<IEnumerable<GenreDto>>().Result;
 

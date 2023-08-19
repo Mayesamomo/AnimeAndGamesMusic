@@ -41,6 +41,8 @@ namespace AnimeANdGameMusic.Controllers
                 ReleaseDate = a.ReleaseDate,
                 AnimeHasPic = a.AnimeHasPic,
                 PicExtension = a.PicExtension,
+                GenreId = a.Genre.GenreId,
+                GenreTitle = a.Genre.GenreTitle,
             }));
 
             return AnimeDtos;
@@ -72,6 +74,8 @@ namespace AnimeANdGameMusic.Controllers
                 ReleaseDate = Anime.ReleaseDate,
                 AnimeHasPic = Anime.AnimeHasPic,
                 PicExtension = Anime.PicExtension,
+                GenreId = Anime.Genre.GenreId,
+                GenreTitle = Anime.Genre.GenreTitle,
             };
             if (Anime == null)
             {

@@ -1,6 +1,6 @@
 ﻿@using System.Globalization
 
-@model AnimeANdGameMusic.Models.AnimeDto
+@model AnimeANdGameMusic.Models.ViewModels.DetailsAnime
 @{
     ViewBag.Title = "View";
 }
@@ -9,16 +9,17 @@
 <br />
 @if (User.Identity.IsAuthenticated)
 {
-    <a href="/Anime/Edit/@Model.AnimeID">Update</a>
+    <a href="/Anime/Edit/@Model.SelectedAnime.AnimeID">Update</a>
     <br />
-    <a href="/Anime/DeleteConfirm/@Model.AnimeID">Delete</a>
+    <a href="/Anime/DeleteConfirm/@Model.SelectedAnime.AnimeID">Delete</a>
     <br />
 }
 
 <div style="display: flex; gap: 25px;">
     <div>
-        <h2>@Model.AnimeName</h2>
-        <div>Release Date: @Model.ReleaseDate.ToString("MMM dd, yyyy", new CultureInfo("en-US"))</div>
-        <div>Description: @Model.Description</div>
+        <h2>@Model.SelectedAnime.AnimeName</h2>
+        <div>Release Date: @Model.SelectedAnime.ReleaseDate.ToString("MMM dd, yyyy", new CultureInfo("en-US"))</div>
+        <div>Description: @Model.SelectedAnime.Description</div>
+        <div>Genre: @Model.SelectedAnime.GenreTitle</div>
     </div>
 </div>
