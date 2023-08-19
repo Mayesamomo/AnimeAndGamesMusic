@@ -150,12 +150,14 @@ namespace AnimeANdGameMusic.Controllers
         public IHttpActionResult UploadGamePic(int id)
         {
 
-            bool gameHaspic = false;
+            bool haspic = false;
             string picextension;
             if (Request.Content.IsMimeMultipartContent())
             {
-                // check the number of image files received 
+                Debug.WriteLine("Received multipart form data.");
+
                 int numfiles = HttpContext.Current.Request.Files.Count;
+                Debug.WriteLine("Files Received: " + numfiles);
 
                 //Check if a file is posted
                 if (numfiles == 1 && HttpContext.Current.Request.Files[0] != null)
@@ -164,41 +166,39 @@ namespace AnimeANdGameMusic.Controllers
                     //Check if the file is empty
                     if (gamePic.ContentLength > 0)
                     {
-                        //set up valid image file types (file extensions)
-                        var imgTypes = new[] { "jpeg", "jpg", "png", "gif", "jfif", "webp" };
+                        //establish valid file types (can be changed to other file extensions if desired!)
+                        var valtypes = new[] { "jpeg", "jpg", "png", "gif" };
                         var extension = Path.GetExtension(gamePic.FileName).Substring(1);
                         //Check the extension of the file
-                        if (imgTypes.Contains(extension))
+                        if (valtypes.Contains(extension))
                         {
                             try
                             {
-                                string fileName = id + "." + extension;
+                                //file name is the id of the image
+                                string fn = id + "." + extension;
 
-                                //file path to ~/Content/Images/Games/{id}.{extension}
-                                string path = Path.Combine(HttpContext.Current.Server.MapPath("~/Content/Images/Games/"), fileName);
+                                //get a direct file path to ~/Content/animes/{id}.{extension}
+                                string path = Path.Combine(HttpContext.Current.Server.MapPath("~/Content/Images/Games/"), fn);
 
-                                //save the file to the path with 'fileName'
+                                //save the file
                                 gamePic.SaveAs(path);
 
-                                //game image was uploaded correctly
-                                gameHaspic = true;
+                                //if these are all successful then we can set these fields
+                                haspic = true;
                                 picextension = extension;
 
-                                //update the game picture related data
+                                //Update the anime haspic and picextension fields in the database
                                 Game Selectedgame = db.Games.Find(id);
-                                Debug.WriteLine("Selectedgame.GameHasPic before update: " + Selectedgame.GameHasPic);
-                                Selectedgame.GameHasPic = gameHaspic;
-                                Selectedgame.PicExtension = picextension;
+                                Selectedgame.GameHasPic = haspic;
+                                Selectedgame.PicExtension = extension;
                                 db.Entry(Selectedgame).State = EntityState.Modified;
-                                Debug.WriteLine("Selectedgame.GameHasPic after update: " + Selectedgame.GameHasPic);
 
                                 db.SaveChanges();
 
                             }
                             catch (Exception ex)
                             {
-                                // check for error
-                                Debug.WriteLine(" save failed");
+                                Debug.WriteLine("Game Image was not saved successfully.");
                                 Debug.WriteLine("Exception:" + ex);
                                 return BadRequest();
                             }
