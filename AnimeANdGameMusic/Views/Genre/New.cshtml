@@ -1,17 +1,15 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    ViewBag.Title = "Create Genre";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>New</title>
-</head>
-<body>
-    <div> 
+<h2>Create Genre</h2>
+<form action="/Genre/Create" method="POST">
+    <div>
+        <label>Name:</label> <br />
+        <input name="GenreTitle" type="text" />
     </div>
-</body>
-</html>
+    <br />
+    <div>
+        <input type="submit" value="Create Genre" />
+    </div>
+</form>

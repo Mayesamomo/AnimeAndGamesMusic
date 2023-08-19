@@ -595,3 +595,6 @@ F:\Humber 2023\C#\AnimeANdGameMusic\obj\Debug\AnimeANdGameMusic.dll
 F:\Humber 2023\C#\AnimeANdGameMusic\obj\Debug\AnimeANdGameMusic.pdb
 F:\Humber 2023\C#\AnimeANdGameMusic\obj\Debug\AnimeANdGameMusic.Migrations.Game.resources
 F:\Humber 2023\C#\AnimeANdGameMusic\obj\Debug\AnimeANdGameMusic.Migrations.Games.resources
+C:\Users\ckwwi\source\repos\AnimeAndGamesMusic3\AnimeANdGameMusic\obj\Debug\AnimeANdGameMusic.Migrations.artistAlbumandsongs.resources
+C:\Users\ckwwi\source\repos\AnimeAndGamesMusic3\AnimeANdGameMusic\obj\Debug\AnimeANdGameMusic.Migrations.Game.resources
+C:\Users\ckwwi\source\repos\AnimeAndGamesMusic3\AnimeANdGameMusic\obj\Debug\AnimeANdGameMusic.Migrations.Games.resources

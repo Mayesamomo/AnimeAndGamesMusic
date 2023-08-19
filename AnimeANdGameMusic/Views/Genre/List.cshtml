@@ -1,17 +1,11 @@
-﻿
+﻿@model IEnumerable<AnimeANdGameMusic.Models.GenreDto>
 @{
-    Layout = null;
+    ViewBag.Title = "Genre List";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>List</title>
-</head>
-<body>
-    <div> 
-    </div>
-</body>
-</html>
+<h2>Genre List</h2>
+<a href="/Genre/New">New Genre</a>
+@foreach (var Genre in Model)
+{
+    <h2><a href="/Genre/Details/@Genre.GenreId">@Genre.GenreTitle</a></h2>
+}

@@ -186,6 +186,8 @@
     <Compile Include="Controllers\AnimeDataController.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\GameDataController.cs" />
+    <Compile Include="Controllers\GenreController.cs" />
+    <Compile Include="Controllers\GenreDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SongController.cs" />

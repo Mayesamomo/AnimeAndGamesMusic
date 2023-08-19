@@ -123,7 +123,7 @@ namespace AnimeANdGameMusic.Controllers
             //show a list of genres
             //GET api/Genredata/listGenre
 
-            string url = "genredata/listgenre";
+            string url = "genredata/listgenres";
             HttpResponseMessage response = client.GetAsync(url).Result;
             IEnumerable<GenreDto> GenreOptions = response.Content.ReadAsAsync<IEnumerable<GenreDto>>().Result;
 

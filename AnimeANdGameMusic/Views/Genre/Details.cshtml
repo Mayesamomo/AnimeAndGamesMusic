@@ -1,17 +1,13 @@
-﻿
+﻿@model AnimeANdGameMusic.Models.GenreDto
 @{
-    Layout = null;
+    ViewBag.Title = "View";
 }
 
-<!DOCTYPE html>
+<a href="/Genre/List">Go back to list</a>
+<br />
+<a href="/Genre/Edit/@Model.GenreId">Update</a>
+<br />
+<a href="/Genre/DeleteConfirm/@Model.GenreId">Delete</a>
+<br />
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
-    <div> 
-    </div>
-</body>
-</html>
+<h2>@Model.GenreTitle</h2>

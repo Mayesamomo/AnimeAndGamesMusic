@@ -1,17 +1,20 @@
-﻿
+﻿@model AnimeANdGameMusic.Models.GenreDto
+
 @{
-    Layout = null;
+    ViewBag.Title = "Edit Genre";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
-    <div> 
+<h2>Edit Genre</h2>
+<form action="/Genre/Update/@Model.GenreId" method="POST">
+    <div style="display:none;">
+        <input name="GenreId" type="text" value="@Model.GenreId" />
     </div>
-</body>
-</html>
+    <div>
+        <label>Name:</label> <br />
+        <input name="GenreTitle" type="text" value="@Model.GenreTitle" />
+    </div>
+    <br />
+    <div>
+        <input type="submit" value="Update Genre" />
+    </div>
+</form>
