@@ -181,7 +181,7 @@ namespace AnimeANdGameMusic.Controllers
             if (response.IsSuccessStatusCode && GamePic != null)
             {
                 //Seperate request for updating the Game picture (when user update Game without providing pictures) 
-                //Debug.WriteLine("Update picture");
+                Debug.WriteLine("Update picture");
 
                 //set up picture url
                 url = "GameData/UploadGamePic/" + id;
